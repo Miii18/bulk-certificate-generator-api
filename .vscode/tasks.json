@@ -1,0 +1,103 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run pytest suite",
+			"type": "shell",
+			"command": "python -m pytest -q",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Run pytest in venv",
+			"type": "shell",
+			"command": "\"D:\\Programming\\PJCT\\bulk-certificate-generator-api\\.venv\\Scripts\\python.exe\" -m pytest -q",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Probe SQLite UUID behavior",
+			"type": "shell",
+			"command": "\"D:\\Programming\\PJCT\\bulk-certificate-generator-api\\.venv\\Scripts\\python.exe\" -c \"import uuid; from sqlalchemy import create_engine, String, Column; from sqlalchemy.orm import DeclarativeBase, Session; class Base(DeclarativeBase): pass; class T(Base): __tablename__='t'; id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4())); engine = create_engine('sqlite://'); Base.metadata.create_all(engine); x = str(uuid.uuid4()); s=Session(engine); s.add(T(id=x)); s.commit(); print('string query ok', s.query(T).filter_by(id=x).one().id); y=uuid.UUID(x); print('uuid query result', s.query(T).filter_by(id=y).one().id)\"",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Verify pytest passes in venv",
+			"type": "shell",
+			"command": "\"D:\\Programming\\PJCT\\bulk-certificate-generator-api\\.venv\\Scripts\\python.exe\" -m pytest -q",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Verify final pytest suite",
+			"type": "shell",
+			"command": "\"D:\\Programming\\PJCT\\bulk-certificate-generator-api\\.venv\\Scripts\\python.exe\" -m pytest -q",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Debug SQLite identity behavior",
+			"type": "shell",
+			"command": "\"D:\\Programming\\PJCT\\bulk-certificate-generator-api\\.venv\\Scripts\\python.exe\" debug_uuid_check.py",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Trace test DB state through API call",
+			"type": "shell",
+			"command": "\"D:\\Programming\\PJCT\\bulk-certificate-generator-api\\.venv\\Scripts\\python.exe\" debug_test_flow.py",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Final verification: pytest suite",
+			"type": "shell",
+			"command": "\"D:\\Programming\\PJCT\\bulk-certificate-generator-api\\.venv\\Scripts\\python.exe\" -m pytest -q",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Verify all tests pass after directory fix",
+			"type": "shell",
+			"command": "\"D:\\Programming\\PJCT\\bulk-certificate-generator-api\\.venv\\Scripts\\python.exe\" -m pytest -q",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Inspect generated PDF path handling",
+			"type": "shell",
+			"command": "\"D:\\Programming\\PJCT\\bulk-certificate-generator-api\\.venv\\Scripts\\python.exe\" debug_download.py",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Final end-to-end pytest verification",
+			"type": "shell",
+			"command": "\"D:\\Programming\\PJCT\\bulk-certificate-generator-api\\.venv\\Scripts\\python.exe\" -m pytest -q",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Compile project sources for syntax validation",
+			"type": "shell",
+			"command": "\"D:\\Programming\\PJCT\\bulk-certificate-generator-api\\.venv\\Scripts\\python.exe\" -m compileall app tests",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Verify UUID fix with pytest",
+			"type": "shell",
+			"command": "\"D:\\Programming\\PJCT\\bulk-certificate-generator-api\\.venv\\Scripts\\python.exe\" -m pytest -q",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Compile final project sources",
+			"type": "shell",
+			"command": "\"D:\\Programming\\PJCT\\bulk-certificate-generator-api\\.venv\\Scripts\\python.exe\" -m compileall app tests",
+			"isBackground": false,
+			"problemMatcher": []
+		}
+	]
+}
